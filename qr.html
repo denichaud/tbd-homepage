@@ -32,16 +32,18 @@
     }
 
     .card-logo {
-      display: block;
-      font-size: 1.875rem;
-      font-weight: 600;
-      letter-spacing: -0.05em;
-      color: var(--text);
+      display: flex;
+      justify-content: center;
       text-decoration: none;
-      margin-bottom: 0.25rem;
-      line-height: 1;
+      margin-bottom: 0.5rem;
     }
     .card-logo:focus-visible { outline: 2px solid var(--accent); border-radius: 2px; }
+
+    .card-logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
 
     .card-tagline {
       font-size: 0.8125rem;
@@ -57,10 +59,17 @@
 
     .card-wit {
       font-size: 0.9375rem;
-      color: var(--muted);
+      color: var(--text);
       font-style: italic;
       font-weight: 300;
       line-height: 1.5;
+      margin-bottom: 0.625rem;
+    }
+
+    .card-intro {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
       margin-bottom: 1.75rem;
     }
 
@@ -91,12 +100,6 @@
       width: 20px;
       height: 20px;
       flex-shrink: 0;
-    }
-
-    .wa-hint {
-      font-size: 0.775rem;
-      color: var(--muted);
-      margin: 0.625rem 0 1.75rem;
     }
 
     /* ── Secondary links ── */
@@ -173,12 +176,18 @@
 <body>
 
   <div class="card">
-    <a href="/" class="card-logo" aria-label="TBD home">TBD</a>
-    <p class="card-tagline">Strategic Consulting</p>
+    <a href="/" class="card-logo" aria-label="TBD home">
+      <img src="logo.svg" alt="TBD" class="card-logo-img">
+    </a>
+    <p class="card-tagline">Future Planner</p>
 
     <div class="card-rule" role="separator"></div>
 
     <p class="card-wit">Great things have small beginnings.</p>
+    <p class="card-intro">
+      If our conversation opened a line of thought worth continuing,
+      I&#8217;d be pleased to continue it with you.
+    </p>
 
     <!-- WhatsApp — primary CTA -->
     <a href="https://wa.me/819054055632"
@@ -191,7 +200,6 @@
       </svg>
       Message on WhatsApp
     </a>
-    <p class="wa-hint">The fastest way to reach me</p>
 
     <!-- Secondary links -->
     <nav class="links" aria-label="Connect">
@@ -234,7 +242,7 @@
   </div>
 
   <footer class="page-footer">
-    <a href="/">tbd.to</a> &middot; Strategic Consulting
+    <a href="/">tbd.to</a> &middot; Future Planner
   </footer>
 
 </body>
