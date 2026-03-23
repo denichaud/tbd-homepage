@@ -127,6 +127,7 @@ nav {
 .nav-logo-img {
   height: 28px;
   width: auto;
+  max-width: 80px;
   display: block;
 }
 
@@ -343,6 +344,7 @@ footer {
 .footer-logo-img {
   height: 20px;
   width: auto;
+  max-width: 60px;
   display: block;
   opacity: 0.5;
 }
