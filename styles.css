@@ -141,9 +141,9 @@ nav {
 .nav-logo:focus-visible { outline: 2px solid var(--accent); border-radius: 4px; }
 
 .nav-logo-img {
-  height: 74px;
+  height: 96px;
   width: auto;
-  max-width: 187px;
+  max-width: 243px;
   display: block;
 }
 
@@ -399,9 +399,9 @@ footer {
 }
 
 .footer-logo-img {
-  height: 51px;
+  height: 66px;
   width: auto;
-  max-width: 135px;
+  max-width: 176px;
   display: block;
   opacity: 0.45;
 }
