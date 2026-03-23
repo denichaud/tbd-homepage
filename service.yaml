@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tbd-homepage
+spec:
+  selector:
+    app: tbd-homepage
+  ports:
+    - port: 80
+      targetPort: 80

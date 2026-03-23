@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tbd-homepage
+spec:
+  rules:
+    - host: tbd-homepage.tbd
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tbd-homepage
+                port:
+                  number: 80

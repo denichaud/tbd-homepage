@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tbd-homepage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tbd-homepage
+  template:
+    metadata:
+      labels:
+        app: tbd-homepage
+    spec:
+      containers:
+        - name: tbd-homepage
+          image: registry.tbd:5000/tbd-homepage:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
