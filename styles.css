@@ -412,3 +412,62 @@ footer {
   color: var(--accent);
   outline: none;
 }
+
+/* ── DARK MODE ── */
+[data-theme="dark"] {
+  --bg:      #1C1917;
+  --surface: #252220;
+  --text:    #F5F3EF;
+  --muted:   rgba(245,243,239,0.5);
+  --accent:  #9B7450;
+  --accent-h:#B8916A;
+  --border:  #38322C;
+}
+
+[data-theme="dark"] nav {
+  background: rgba(28,25,23,0.88);
+}
+
+[data-theme="dark"] .comp-item:hover { background: #2A2521; }
+
+[data-theme="dark"] .service-card:hover { border-color: #4A3F36; }
+
+[data-theme="dark"] .why {
+  background: var(--surface);
+  color: var(--text);
+}
+[data-theme="dark"] .why .section-label {
+  color: var(--muted);
+}
+[data-theme="dark"] .why .section-label::before {
+  background: var(--border);
+}
+[data-theme="dark"] .why-list li {
+  color: var(--muted);
+}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  transition: border-color 0.18s, color 0.18s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: none;
+}
+.theme-toggle .icon-sun  { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
