@@ -482,10 +482,6 @@ footer {
   transform: translateX(22px);
 }
 
-[data-theme="dark"] .nav-logo-img,
-[data-theme="dark"] .footer-logo-img {
-  filter: brightness(0) invert(0.9);
-}
 
 [data-theme="dark"] .btn-dark {
   color: var(--bg);

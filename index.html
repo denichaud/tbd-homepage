@@ -175,11 +175,19 @@
   </footer>
 
   <script>
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      var isDark = theme === 'dark';
+      document.querySelectorAll('.nav-logo-img, .footer-logo-img').forEach(function(img) {
+        img.src = isDark ? 'logo-light.svg' : 'logo.svg';
+      });
+    }
     document.getElementById('theme-toggle').addEventListener('click', function(){
       var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
+      applyTheme(next);
       localStorage.setItem('theme', next);
     });
+    applyTheme(document.documentElement.getAttribute('data-theme'));
   </script>
 </body>
 </html>
