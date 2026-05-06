@@ -481,3 +481,20 @@ footer {
   background: rgba(245,243,239,0.5);
   transform: translateX(22px);
 }
+
+[data-theme="dark"] .nav-logo-img,
+[data-theme="dark"] .footer-logo-img {
+  filter: brightness(0) invert(0.9);
+}
+
+[data-theme="dark"] .btn-dark {
+  color: var(--bg);
+}
+[data-theme="dark"] .btn-dark:hover,
+[data-theme="dark"] .btn-dark:focus-visible {
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .theme-toggle { top: 0.625rem; }
+}
