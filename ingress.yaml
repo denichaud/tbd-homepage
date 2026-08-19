@@ -4,7 +4,7 @@ metadata:
   name: tbd-homepage
 spec:
   rules:
-    - host: tbd-homepage.tbd
+    - host: tbd.to
       http:
         paths:
           - path: /

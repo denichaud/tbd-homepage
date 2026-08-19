@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tbd-homepage
-          image: registry.tbd:5000/tbd-homepage:latest
+          image: ghcr.io/denichaud/tbd-homepage:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
