@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Jazz Atlas &#8212; TBD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A prototype knowledge graph of jazz artists, albums and labels from open music data, built partly by supervised AI agents.">
+  <meta property="og:title" content="Jazz Atlas &#8212; TBD">
+  <meta property="og:description" content="A prototype knowledge graph of jazz artists, albums and labels from open music data, built partly by supervised AI agents.">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', stored || preferred);
+    })();
+  </script>
+</head>
+<body>
+
+  <nav aria-label="Site navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="TBD home">
+          <img src="/logo.svg" alt="TBD" class="nav-logo-img" width="243" height="122">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+
+  <main>
+
+    <header class="case-head">
+      <div class="container">
+        <a class="case-back" href="/#work-heading">&#8592; Selected work</a>
+        <p class="work-kind">Prototype &middot; Knowledge graph</p>
+        <h1>Turning a reference book into something you can explore</h1>
+        <p class="case-lede">Reference books are full of connections a reader can&#8217;t follow: who played on what, which label, which critic praised it. We are turning a published jazz guide and two open music databases into a graph, so that every name leads somewhere and, once search is built, every answer can be traced to its source.</p>
+        <div class="case-stats">
+          <div class="case-stat"><b>172,751</b><span>artists, releases and recordings from MusicBrainz, after the first load</span></div>
+          <div class="case-stat"><b>251K</b><span>connections between them</span></div>
+          <div class="case-stat"><b>300K</b><span>Discogs album titles, loaded but not yet linked</span></div>
+          <div class="case-stat"><b>In progress</b><span>review extraction and search interface next</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="section-rule" role="separator"></div>
+
+    <section class="case-section">
+      <div class="container">
+        <h2>Why not just a chatbot?</h2>
+        <div class="case-prose">
+          <p>Point a chatbot at a PDF and you get fluent answers you can&#8217;t check, and a dead end after each one. People don&#8217;t use a reference book that way. They look something up, notice a name, and follow it.</p>
+          <p>So the graph comes first, and it exists today. Search and chat come next, and are not built yet. The plan: search that resolves vague input (&#8220;newks time&#8221;, &#8220;blue note 4001&#8221;) to a real album, then lets you move along the connections to the personnel, the label and the other records each musician played on. Chat will be a supporting feature that shows where each answer came from.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-rule" role="separator"></div>
+
+    <section class="case-section">
+      <div class="container">
+        <h2>A slice of the real graph</h2>
+        <figure class="case-figure">
+          <img src="/work/jazz-atlas/rollins-albums.jpg" alt="Neo4j view of Sonny Rollins connected to the albums he recorded in the late 1950s" width="1600" height="900" loading="lazy" style="width:100%;height:auto;border-radius:12px">
+          <figcaption>Sonny Rollins and the albums he recorded in the late 1950s, drawn straight from the database. Questions like &#8220;what albums feature Philly Joe Jones?&#8221; become walks across connections like these, not guesses. Reviews and ratings are not in the graph yet.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="section-rule" role="separator"></div>
+
+    <section class="case-section">
+      <div class="container">
+        <h2>Built by agents, supervised by people</h2>
+        <div class="case-prose">
+          <p>Jazz Atlas is also our test bed for autonomous AI workers. Some stages of the build were bounded tasks on a task board, each with a written definition of done: an AI worker did the work and proved it to an automated check, and a person signed off before the next stage began. People planned the stages and made several of the key fixes.</p>
+        </div>
+        <figure class="case-figure">
+          <ol class="flow flow--3" aria-label="Who does what">
+            <li><b>AI worker</b><span>Runs the task: the shell, the scripts and the database work.</span></li>
+            <li><b>Automated judge</b><span>A hosted model reviews the result against the definition of done.</span></li>
+            <li><b>Person</b><span>Plans the stages and signs off each one before the next begins.</span></li>
+          </ol>
+        </figure>
+        <ul class="case-points">
+          <li><h3>Prove the smallest unit first</h3><p>The first autonomous run did one thing: start the database and prove it answered. 22 tool calls, two and a half minutes, no help. Everything later was built on that.</p></li>
+          <li><h3>Read the log before theorising</h3><p>Building connections was 180&#215; slower than it should have been. The cause was a missing index, found in the logs, not by guessing, and a person added it. Indexes now come first.</p></li>
+        </ul>
+        <ul class="work-facts case-stack" aria-label="Stack"><li>Neo4j</li><li>MusicBrainz + Discogs open data</li><li>Python ingestion</li><li>Agent task board</li><li>Hosted model as judge</li></ul>
+      </div>
+    </section>
+
+    <div class="section-rule" role="separator"></div>
+
+    <div class="container">
+      <div class="case-next">
+        <a href="/#work-heading">&#8592; All work</a>
+        <a href="/work/voice-pipeline/">Next: Topic-to-video pipeline &#8594;</a>
+      </div>
+    </div>
+
+    <div class="section-rule" role="separator"></div>
+
+    <section class="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-inner">
+          <p class="section-label" aria-hidden="true">Get in Touch</p>
+          <h2 id="contact-heading">Sitting on knowledge nobody can navigate?</h2>
+          <p class="contact-body">
+            Tell us what you are working with and what you want it to do.
+            We&#8217;ll tell you honestly whether AI is the right tool for it.
+          </p>
+          <div class="contact-btns">
+            <a href="https://wa.me/819054055632"
+               class="btn btn-wa"
+               target="_blank"
+               rel="noopener noreferrer">
+              Message on WhatsApp
+            </a>
+            <a href="mailto:emile@tbd.to" class="btn btn-outline">
+              emile@tbd.to
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <img src="/logo.svg" alt="TBD" class="footer-logo-img" width="176" height="88">
+        <a href="https://www.linkedin.com/in/denichaud/" class="footer-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <span class="footer-copy">&#169; 2026 TBD. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      var isDark = theme === 'dark';
+      document.querySelectorAll('.nav-logo-img, .footer-logo-img').forEach(function(img) {
+        img.src = isDark ? '/logo-light.svg' : '/logo.svg';
+      });
+    }
+    document.getElementById('theme-toggle').addEventListener('click', function(){
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('theme', next);
+    });
+    applyTheme(document.documentElement.getAttribute('data-theme'));
+  </script>
+</body>
+</html>

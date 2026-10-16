@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Topic-to-video pipeline &#8212; TBD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A May 2026 pilot that turned an expert&#8217;s own material into short vertical videos in their cloned voice, rendered on our own GPUs.">
+  <meta property="og:title" content="Topic-to-video pipeline &#8212; TBD">
+  <meta property="og:description" content="A May 2026 pilot that turned an expert&#8217;s own material into short vertical videos in their cloned voice, rendered on our own GPUs.">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', stored || preferred);
+    })();
+  </script>
+</head>
+<body>
+
+  <nav aria-label="Site navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="TBD home">
+          <img src="/logo.svg" alt="TBD" class="nav-logo-img" width="243" height="122">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+
+  <main>
+
+    <header class="case-head">
+      <div class="container">
+        <a class="case-back" href="/#work-heading">&#8592; Selected work</a>
+        <p class="work-kind">Pilot &middot; Generative media &middot; May 2026</p>
+        <h1>Short videos in an expert&#8217;s own voice, from their own material</h1>
+        <p class="case-lede">An expert with deep material and no time to film. In May 2026 we built a pipeline that drafted a short script from the expert&#8217;s own body of work, voiced it with a model trained on their recordings, animated a speaking portrait and added word-by-word captions. Roughly one clip in three was good enough to use, and a person reviewed every one.</p>
+        <div class="case-stats">
+          <div class="case-stat"><b>~3&#188; hrs</b><span>of training audio for the voice in these clips</span></div>
+          <div class="case-stat"><b>9:16</b><span>vertical video for Reels, Shorts and TikTok</span></div>
+          <div class="case-stat"><b>~80 min</b><span>of GPU time per 18-second render</span></div>
+          <div class="case-stat"><b>7 of 20</b><span>clips judged good enough to use</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="case-section">
+      <div class="container">
+        <h2>One of the clips</h2>
+        <figure class="case-figure" style="max-width:360px">
+          <video controls playsinline preload="none" poster="/work/voice-pipeline/clip-poster.png" style="width:100%;height:auto;border-radius:12px" width="480" height="832">
+            <source src="/work/voice-pipeline/clip-leadership.mp4" type="video/mp4">
+          </video>
+          <figcaption>A 14-second clip on leadership, scripted from the consultant&#8217;s own material and spoken in their cloned voice. Published with their permission.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="section-rule" role="separator"></div>
+
+    <section class="case-section">
+      <div class="container">
+        <h2>The pipeline</h2>
+        <figure class="case-figure">
+          <ol class="flow flow--5" aria-label="Video pipeline steps">
+            <li><b>Script</b><span>Drafted by a hosted language model from the expert&#8217;s own material, not the open internet, then tightened. Short sentences, a hook in the first three seconds.</span></li>
+            <li><b>Voice</b><span>A speech model fine-tuned on the expert&#8217;s recordings reads the script aloud.</span></li>
+            <li><b>Pick the best take</b><span>Several takes are generated. Each is transcribed back and scored against the script; the best-scoring take is kept, then a person reviews it.</span></li>
+            <li><b>Speaking video</b><span>A video model animates a portrait from the audio, with lip movement driven by the voice.</span></li>
+            <li><b>Captions + export</b><span>Word-level timing drives on-screen text, then a vertical MP4 is exported.</span></li>
+          </ol>
+        </figure>
+        <div class="case-prose" style="margin-top:2rem">
+          <p>The voice model has since been retrained. The newer version has not yet been rendered to video.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-rule" role="separator"></div>
+
+    <section class="case-section">
+      <div class="container">
+        <h2>Decisions that mattered</h2>
+        <ul class="case-points">
+          <li><h3>Check the machine&#8217;s work automatically</h3><p>Voice models sometimes add, drop or slur words. Transcribing every take and scoring it against the script catches this before a person ever listens, so review time goes into judgment, not proofreading.</p></li>
+          <li><h3>Start with the data</h3><p>The voice is only as good as its training clips. Recordings were transcribed and cut into 3&#8211;25 second segments before training.</p></li>
+          <li><h3>Be honest about cost</h3><p>A rendered clip took about 80 minutes of GPU time on our own hardware. That is fine for a weekly batch and wrong for anything on demand. Knowing this up front shaped what we recommended.</p></li>
+          <li><h3>Same voice, different face</h3><p>The same audio can drive a photorealistic portrait or an illustrated character. The client can choose how literal the &#8220;digital twin&#8221; should be.</p></li>
+        </ul>
+        <ul class="work-facts case-stack" aria-label="Stack"><li>Whisper (transcription)</li><li>F5-TTS (voice fine-tune)</li><li>ComfyUI</li><li>Wan 2.2 speech-to-video</li><li>faster-whisper (word timing)</li><li>Our own GPUs for rendering</li><li>Hosted LLM for scripts</li></ul>
+      </div>
+    </section>
+
+    <div class="section-rule" role="separator"></div>
+
+    <div class="container">
+      <div class="case-next">
+        <a href="/#work-heading">&#8592; All work</a>
+        <a href="/work/rag-assistant/">Next: AI assistant for a consulting library &#8594;</a>
+      </div>
+    </div>
+
+    <div class="section-rule" role="separator"></div>
+
+    <section class="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-inner">
+          <p class="section-label" aria-hidden="true">Get in Touch</p>
+          <h2 id="contact-heading">Want your expertise in more places?</h2>
+          <p class="contact-body">
+            Tell us what you are working with and what you want it to do.
+            We&#8217;ll tell you honestly whether AI is the right tool for it.
+          </p>
+          <div class="contact-btns">
+            <a href="https://wa.me/819054055632"
+               class="btn btn-wa"
+               target="_blank"
+               rel="noopener noreferrer">
+              Message on WhatsApp
+            </a>
+            <a href="mailto:emile@tbd.to" class="btn btn-outline">
+              emile@tbd.to
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <img src="/logo.svg" alt="TBD" class="footer-logo-img" width="176" height="88">
+        <a href="https://www.linkedin.com/in/denichaud/" class="footer-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <span class="footer-copy">&#169; 2026 TBD. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      var isDark = theme === 'dark';
+      document.querySelectorAll('.nav-logo-img, .footer-logo-img').forEach(function(img) {
+        img.src = isDark ? '/logo-light.svg' : '/logo.svg';
+      });
+    }
+    document.getElementById('theme-toggle').addEventListener('click', function(){
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('theme', next);
+    });
+    applyTheme(document.documentElement.getAttribute('data-theme'));
+  </script>
+</body>
+</html>
